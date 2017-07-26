@@ -1,0 +1,54 @@
+create database shopper;
+use shopper;
+
+create table shopper_admin(
+id int auto_increment primary key,
+username varchar(20) not null unique,
+password char(32) not null,
+email varchar(50) not null);
+
+create table shopper_user(
+id int auto_increment primary key,
+username varchar(20) not null unique,
+password char(32) not null,
+email varchar(50) not null,
+tel char(11) not null
+);
+
+create table shopper_product(
+pid int auto_increment primary key,
+pname varchar(50) not null,
+psn varchar(50) not null,
+pnum smallint not null default 1,
+price decimal(10,2) not null,
+plmg varchar(255) not null,
+size varchar(20) not null,
+cid int not null 
+);
+use shopper;
+create table shopper_order(
+oid int auto_increment primary key,
+username varchar(20) not null unique,
+id int  not null,
+pname varchar(50) not null,
+plmg varchar(255) not null,
+sprice decimal(10,2) not null
+);
+
+create table shopper_cate(
+id smallint auto_increment primary key,
+cname varchar(30) not null
+);
+
+create table shopper_album(
+id int not null primary key,
+pid int not null,
+albumpath varchar(50) not null
+);
+use shopper;
+create table shopper_collection(
+cid int auto_increment primary key,
+username varchar(20) not null unique,
+id int not null,
+pname varchar(50) not null,
+plmg varchar(255) not null);
